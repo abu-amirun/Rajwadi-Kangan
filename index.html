@@ -1,190 +1,328 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Rajwadi Kangan | Luxury Royal Bangles</title>
+  <meta
+    name="description"
+    content="Rajwadi Kangan - Luxury royal bangles with premium glassmorphism design, animated liquid visuals, and elegant mobile-first experience."
+  />
+  <meta name="theme-color" content="#180022" />
 
-  <title>Rajwadi Kangan | Premium Bangles Collection</title>
-
-  <meta name="description" content="Rajwadi Kangan - Premium royal bangles, bridal bangles and elegant kangan collection." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <canvas id="three-bg"></canvas>
+  <!-- Animated background -->
+  <div class="bg-scene" aria-hidden="true">
+    <div class="bg-mesh"></div>
 
-  <div class="noise"></div>
-  <div class="glow glow-one"></div>
-  <div class="glow glow-two"></div>
-
-  <header class="navbar glass">
-    <div class="brand">
-      <div class="brand-icon">RK</div>
-      <div>
-        <h2>Rajwadi Kangan</h2>
-        <p>Royal Bangles Studio</p>
-      </div>
+    <div class="liquid-layer">
+      <span class="blob blob-1 parallax-layer" data-depth="18"></span>
+      <span class="blob blob-2 parallax-layer" data-depth="-12"></span>
+      <span class="blob blob-3 parallax-layer" data-depth="10"></span>
+      <span class="blob blob-4 parallax-layer" data-depth="-8"></span>
+      <span class="blob blob-5 parallax-layer" data-depth="14"></span>
+      <span class="blob blob-6 parallax-layer" data-depth="-10"></span>
     </div>
 
-    <nav>
+    <div class="pearl-field" id="pearlField"></div>
+    <div class="noise-overlay"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header glass">
+    <a href="#" class="brand">
+      <div class="brand-mark">RK</div>
+      <div class="brand-text">
+        <strong>Rajwadi Kangan</strong>
+        <span>Royal Bangles Studio</span>
+      </div>
+    </a>
+
+    <nav class="desktop-nav">
       <a href="#home">Home</a>
-      <a href="#collection">Collection</a>
-      <a href="#features">Why Us</a>
+      <a href="#collections">Collections</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <a class="nav-btn" href="#contact">Order Now</a>
+    <a class="header-cta" href="#contact">Order Now</a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
-  <main id="home" class="hero">
-    <section class="hero-content">
-      <div class="premium-badge glass">
-        ✦ Premium Royal Collection
+  <div class="mobile-menu glass" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#collections">Collections</a>
+    <a href="#experience">Experience</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow glass">
+          ✦ Premium Liquid Glass Experience
+        </div>
+
+        <h1>
+          Royal Kangan,
+          <span>Modern Luxury</span>
+          For Every Celebration
+        </h1>
+
+        <p class="hero-text">
+          A premium jewellery-style web experience inspired by liquid 3D forms,
+          elegant glassmorphism, dark purple luxury mood, and moving pearl accents.
+          Perfect for bridal, festive, and statement kangan collections.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#collections" class="btn btn-primary">Explore Collection</a>
+          <a href="#contact" class="btn btn-secondary">WhatsApp Order</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat glass">
+            <h3>500+</h3>
+            <p>Designs</p>
+          </div>
+          <div class="stat glass">
+            <h3>Premium</h3>
+            <p>Finish</p>
+          </div>
+          <div class="stat glass">
+            <h3>India</h3>
+            <p>Delivery</p>
+          </div>
+        </div>
       </div>
 
-      <h1>
-        Royal Kangan<br />
-        For Your Perfect Look
-      </h1>
+      <div class="hero-visual reveal">
+        <div class="visual-stage glass tilt-card">
+          <div class="visual-topline">
+            <span>Luxury Design</span>
+            <span>Glassmorphism UI</span>
+          </div>
 
-      <p class="hero-text">
-        Premium glass bangles, bridal kangan, festive designs and elegant royal collections —
-        made for every special moment.
-      </p>
+          <div class="phone-stack">
+            <article class="phone-card glass parallax-layer" data-depth="8">
+              <div class="mini-icon"></div>
+              <h4>Bridal Kangan</h4>
+              <p>Royal set with premium look and festive elegance.</p>
+              <div class="mini-chart">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </article>
 
-      <div class="hero-actions">
-        <a href="#collection" class="btn primary-btn">View Collection</a>
-        <a href="#contact" class="btn glass-btn">WhatsApp Order</a>
-      </div>
+            <article class="phone-card glass center-card parallax-layer" data-depth="-6">
+              <div class="liquid-preview"></div>
+              <h4>Signature Collection</h4>
+              <p>Luxury dark theme with bold visual identity.</p>
+              <a href="#collections">View Now →</a>
+            </article>
 
-      <div class="stats">
-        <div class="stat glass">
-          <h3>500+</h3>
-          <p>Designs</p>
-        </div>
-        <div class="stat glass">
-          <h3>Premium</h3>
-          <p>Quality</p>
-        </div>
-        <div class="stat glass">
-          <h3>India</h3>
-          <p>Delivery</p>
+            <article class="phone-card glass parallax-layer" data-depth="12">
+              <div class="price-row">
+                <span>New Arrival</span>
+                <strong>Premium</strong>
+              </div>
+              <ul class="mini-list">
+                <li><span></span> Bridal</li>
+                <li><span></span> Festive</li>
+                <li><span></span> Daily Wear</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="floating-tag tag-left glass">White Pearl</div>
+          <div class="floating-tag tag-right glass">Golden Mood</div>
         </div>
       </div>
     </section>
 
-    <section class="hero-card glass">
-      <div class="product-orbit">
-        <div class="ring ring-one"></div>
-        <div class="ring ring-two"></div>
-        <div class="ring ring-three"></div>
+    <!-- Collections -->
+    <section class="section" id="collections">
+      <div class="section-head reveal">
+        <p class="section-kicker">Collections</p>
+        <h2>Premium Kangan Categories</h2>
+        <p class="section-sub">
+          Elegant sections designed with luxury UI, soft motion, and professional depth.
+        </p>
+      </div>
 
-        <div class="main-product">
-          <span>✦</span>
-          <h2>Rajwadi</h2>
-          <p>Kangan</p>
+      <div class="grid-3">
+        <article class="card glass reveal">
+          <div class="card-visual card-visual-maroon">
+            <div class="inner-ring"></div>
+          </div>
+          <h3>Bridal Royal Set</h3>
+          <p>
+            Grand statement kangan collection for weddings, engagement, and special occasions.
+          </p>
+          <a href="#contact">Order Now →</a>
+        </article>
+
+        <article class="card glass reveal">
+          <div class="card-visual card-visual-green">
+            <div class="inner-orb"></div>
+          </div>
+          <h3>Festive Collection</h3>
+          <p>
+            A rich visual experience for Eid, Puja, family events, and celebration styling.
+          </p>
+          <a href="#contact">Order Now →</a>
+        </article>
+
+        <article class="card glass reveal">
+          <div class="card-visual card-visual-gold">
+            <div class="inner-pearl"></div>
+          </div>
+          <h3>Daily Luxury Wear</h3>
+          <p>
+            Subtle elegance with a premium finish for daily styling and modern traditional looks.
+          </p>
+          <a href="#contact">Order Now →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section experience-section" id="experience">
+      <div class="section-head reveal">
+        <p class="section-kicker">Experience</p>
+        <h2>Why This Website Feels Premium</h2>
+      </div>
+
+      <div class="experience-layout">
+        <div class="experience-panel glass reveal">
+          <div class="experience-badge">3D Liquid Visuals</div>
+          <h3>Glass + Motion + Luxury Mood</h3>
+          <p>
+            The entire site is designed to feel smooth, modern, luxurious, and alive —
+            with moving liquid forms, floating pearls, glass panels, and responsive animation.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <span>◆</span>
+              <div>
+                <h4>Reactive Animation</h4>
+                <p>Mouse movement and floating motion create a premium interactive feel.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <span>✦</span>
+              <div>
+                <h4>Mobile Perfect</h4>
+                <p>Responsive layout that stays beautiful on phone, tablet, and desktop.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <span>●</span>
+              <div>
+                <h4>Luxury Color System</h4>
+                <p>Dark purple base with maroon, green, gold, and white pearl highlights.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="metric-column">
+          <div class="metric-card glass reveal">
+            <h3>Fast Feel</h3>
+            <p>Static site — fast loading and perfect for GitHub Pages hosting.</p>
+          </div>
+          <div class="metric-card glass reveal">
+            <h3>Professional UI</h3>
+            <p>Premium landing page look inspired by luxury product design systems.</p>
+          </div>
+          <div class="metric-card glass reveal">
+            <h3>Conversion Ready</h3>
+            <p>Built with clear call-to-actions for order, WhatsApp, and brand trust.</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="floating-card card-one glass">
-        <h4>Bridal Set</h4>
-        <p>Royal Finish</p>
+    <!-- About -->
+    <section class="section about-section" id="about">
+      <div class="about-wrap glass reveal">
+        <div class="about-copy">
+          <p class="section-kicker">About Brand</p>
+          <h2>Rajwadi Kangan</h2>
+          <p>
+            A luxury-inspired jewellery presentation website crafted for premium bangles and
+            kangan collections. This design style works beautifully for bridal products,
+            catalog presentation, premium drops, and WhatsApp-based ordering.
+          </p>
+          <p>
+            The visual language combines soft glass cards, floating liquid forms,
+            elegant typography, and pearl-like motion to create a strong modern identity.
+          </p>
+        </div>
+
+        <div class="about-pills">
+          <span class="glass">Luxury UI</span>
+          <span class="glass">Dark Purple</span>
+          <span class="glass">Glassmorphism</span>
+          <span class="glass">3D Motion</span>
+          <span class="glass">Mobile First</span>
+          <span class="glass">Premium Brand</span>
+        </div>
       </div>
+    </section>
 
-      <div class="floating-card card-two glass">
-        <h4>New Arrival</h4>
-        <p>Dark Purple Theme</p>
+    <!-- CTA -->
+    <section class="section" id="contact">
+      <div class="cta-box glass reveal">
+        <div>
+          <p class="section-kicker">Ready to Order?</p>
+          <h2>Let Customers Experience Luxury From The First Click</h2>
+          <p class="cta-text">
+            Add your real WhatsApp number, product images, Instagram link, and collection details —
+            then this site is ready for your brand launch.
+          </p>
+        </div>
+
+        <div class="cta-actions">
+          <a
+            href="https://wa.me/919999999999?text=Hello%20Rajwadi%20Kangan,%20I%20want%20to%20order."
+            target="_blank"
+            class="btn btn-primary"
+          >
+            WhatsApp Now
+          </a>
+          <a href="#home" class="btn btn-secondary">Back To Top</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <section id="collection" class="section">
-    <div class="section-header">
-      <p>Our Collection</p>
-      <h2>Premium Kangan Designs</h2>
-    </div>
-
-    <div class="collection-grid">
-      <article class="collection-card glass">
-        <div class="card-image purple">
-          <span>✺</span>
-        </div>
-        <h3>Bridal Kangan</h3>
-        <p>Wedding and engagement special royal bangle set.</p>
-        <a href="#contact">Order Now →</a>
-      </article>
-
-      <article class="collection-card glass">
-        <div class="card-image pink">
-          <span>✦</span>
-        </div>
-        <h3>Daily Wear</h3>
-        <p>Simple, elegant and lightweight designs for daily use.</p>
-        <a href="#contact">Order Now →</a>
-      </article>
-
-      <article class="collection-card glass">
-        <div class="card-image gold">
-          <span>✧</span>
-        </div>
-        <h3>Festival Collection</h3>
-        <p>Perfect for Eid, Puja, wedding functions and parties.</p>
-        <a href="#contact">Order Now →</a>
-      </article>
-    </div>
-  </section>
-
-  <section id="features" class="section features-section">
-    <div class="section-header">
-      <p>Why Choose Us</p>
-      <h2>Royal Look, Premium Feel</h2>
-    </div>
-
-    <div class="features-grid">
-      <div class="feature glass">
-        <div class="feature-icon">◆</div>
-        <h3>Premium Quality</h3>
-        <p>Carefully selected designs with beautiful finishing.</p>
-      </div>
-
-      <div class="feature glass">
-        <div class="feature-icon">✦</div>
-        <h3>Modern + Traditional</h3>
-        <p>Royal Indian style with modern fashion taste.</p>
-      </div>
-
-      <div class="feature glass">
-        <div class="feature-icon">◈</div>
-        <h3>Easy Order</h3>
-        <p>Choose your design and order directly through WhatsApp.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact-section glass">
-    <div>
-      <p class="small-title">Ready to Order?</p>
-      <h2>Get Your Perfect Kangan Today</h2>
-      <p>
-        Screenshot your favourite design and message us on WhatsApp.
-        Custom colour and size options available.
-      </p>
-    </div>
-
-    <a 
-      class="btn primary-btn whatsapp-btn" 
-      href="https://wa.me/918828888129?text=Hello%20Rajwadi%20Kangan%2C%20I%20want%20to%20order%20a%20kangan%20design."
-      target="_blank"
-    >
-      Message on WhatsApp
-    </a>
-  </section>
-
-  <footer>
-    <p>© 2026 Rajwadi Kangan. All rights reserved.</p>
+  <footer class="site-footer">
+    <p>© 2026 Rajwadi Kangan. Crafted with luxury liquid glass style.</p>
   </footer>
 
-  <script type="module" src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
