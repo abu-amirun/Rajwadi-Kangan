@@ -1,124 +1,190 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <title>My 3D Landing Website</title>
-  <style>
-    body {
-      margin: 0;
-      background: #090014;
-      color: white;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-left: 8%;
-      position: relative;
-      z-index: 2;
-    }
+  <title>Rajwadi Kangan | Premium Bangles Collection</title>
 
-    h1 {
-      font-size: 64px;
-      max-width: 700px;
-      line-height: 1.1;
-    }
+  <meta name="description" content="Rajwadi Kangan - Premium royal bangles, bridal bangles and elegant kangan collection." />
 
-    p {
-      font-size: 20px;
-      max-width: 500px;
-      color: #ddd;
-    }
-
-    button {
-      padding: 15px 30px;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #8b5cf6, #ec4899);
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-  <section class="hero">
-    <div>
-      <h1>Premium 3D Landing Website</h1>
-      <p>GitHub Pages দিয়ে free hosting সহ modern animated website.</p>
-      <button>Get Started</button>
+<body>
+  <canvas id="three-bg"></canvas>
+
+  <div class="noise"></div>
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
+
+  <header class="navbar glass">
+    <div class="brand">
+      <div class="brand-icon">RK</div>
+      <div>
+        <h2>Rajwadi Kangan</h2>
+        <p>Royal Bangles Studio</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#collection">Collection</a>
+      <a href="#features">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="nav-btn" href="#contact">Order Now</a>
+  </header>
+
+  <main id="home" class="hero">
+    <section class="hero-content">
+      <div class="premium-badge glass">
+        ✦ Premium Royal Collection
+      </div>
+
+      <h1>
+        Royal Kangan<br />
+        For Your Perfect Look
+      </h1>
+
+      <p class="hero-text">
+        Premium glass bangles, bridal kangan, festive designs and elegant royal collections —
+        made for every special moment.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#collection" class="btn primary-btn">View Collection</a>
+        <a href="#contact" class="btn glass-btn">WhatsApp Order</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat glass">
+          <h3>500+</h3>
+          <p>Designs</p>
+        </div>
+        <div class="stat glass">
+          <h3>Premium</h3>
+          <p>Quality</p>
+        </div>
+        <div class="stat glass">
+          <h3>India</h3>
+          <p>Delivery</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero-card glass">
+      <div class="product-orbit">
+        <div class="ring ring-one"></div>
+        <div class="ring ring-two"></div>
+        <div class="ring ring-three"></div>
+
+        <div class="main-product">
+          <span>✦</span>
+          <h2>Rajwadi</h2>
+          <p>Kangan</p>
+        </div>
+      </div>
+
+      <div class="floating-card card-one glass">
+        <h4>Bridal Set</h4>
+        <p>Royal Finish</p>
+      </div>
+
+      <div class="floating-card card-two glass">
+        <h4>New Arrival</h4>
+        <p>Dark Purple Theme</p>
+      </div>
+    </section>
+  </main>
+
+  <section id="collection" class="section">
+    <div class="section-header">
+      <p>Our Collection</p>
+      <h2>Premium Kangan Designs</h2>
+    </div>
+
+    <div class="collection-grid">
+      <article class="collection-card glass">
+        <div class="card-image purple">
+          <span>✺</span>
+        </div>
+        <h3>Bridal Kangan</h3>
+        <p>Wedding and engagement special royal bangle set.</p>
+        <a href="#contact">Order Now →</a>
+      </article>
+
+      <article class="collection-card glass">
+        <div class="card-image pink">
+          <span>✦</span>
+        </div>
+        <h3>Daily Wear</h3>
+        <p>Simple, elegant and lightweight designs for daily use.</p>
+        <a href="#contact">Order Now →</a>
+      </article>
+
+      <article class="collection-card glass">
+        <div class="card-image gold">
+          <span>✧</span>
+        </div>
+        <h3>Festival Collection</h3>
+        <p>Perfect for Eid, Puja, wedding functions and parties.</p>
+        <a href="#contact">Order Now →</a>
+      </article>
     </div>
   </section>
 
-  <canvas id="bg"></canvas>
+  <section id="features" class="section features-section">
+    <div class="section-header">
+      <p>Why Choose Us</p>
+      <h2>Royal Look, Premium Feel</h2>
+    </div>
 
-  <script type="module">
-    import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js";
+    <div class="features-grid">
+      <div class="feature glass">
+        <div class="feature-icon">◆</div>
+        <h3>Premium Quality</h3>
+        <p>Carefully selected designs with beautiful finishing.</p>
+      </div>
 
-    const canvas = document.querySelector("#bg");
-    const scene = new THREE.Scene();
+      <div class="feature glass">
+        <div class="feature-icon">✦</div>
+        <h3>Modern + Traditional</h3>
+        <p>Royal Indian style with modern fashion taste.</p>
+      </div>
 
-    const camera = new THREE.PerspectiveCamera(
-      45,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      100
-    );
+      <div class="feature glass">
+        <div class="feature-icon">◈</div>
+        <h3>Easy Order</h3>
+        <p>Choose your design and order directly through WhatsApp.</p>
+      </div>
+    </div>
+  </section>
 
-    camera.position.z = 6;
+  <section id="contact" class="contact-section glass">
+    <div>
+      <p class="small-title">Ready to Order?</p>
+      <h2>Get Your Perfect Kangan Today</h2>
+      <p>
+        Screenshot your favourite design and message us on WhatsApp.
+        Custom colour and size options available.
+      </p>
+    </div>
 
-    const renderer = new THREE.WebGLRenderer({
-      canvas,
-      antialias: true,
-      alpha: true
-    });
+    <a 
+      class="btn primary-btn whatsapp-btn" 
+      href="https://wa.me/919999999999?text=Hello%20Rajwadi%20Kangan%2C%20I%20want%20to%20order%20a%20kangan%20design."
+      target="_blank"
+    >
+      Message on WhatsApp
+    </a>
+  </section>
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+  <footer>
+    <p>© 2026 Rajwadi Kangan. All rights reserved.</p>
+  </footer>
 
-    const geometry = new THREE.IcosahedronGeometry(1.8, 2);
-    const material = new THREE.MeshStandardMaterial({
-      color: 0x9b5cff,
-      metalness: 0.5,
-      roughness: 0.2
-    });
-
-    const object = new THREE.Mesh(geometry, material);
-    object.position.x = 2;
-    scene.add(object);
-
-    const light = new THREE.PointLight(0xffffff, 3);
-    light.position.set(3, 3, 4);
-    scene.add(light);
-
-    const ambient = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambient);
-
-    function animate() {
-      requestAnimationFrame(animate);
-      object.rotation.x += 0.005;
-      object.rotation.y += 0.008;
-      renderer.render(scene, camera);
-    }
-
-    animate();
-
-    window.addEventListener("resize", () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  </script>
-
+  <script type="module" src="script.js"></script>
 </body>
 </html>
