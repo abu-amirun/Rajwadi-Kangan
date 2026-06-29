@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>My 3D Landing Website</title>
+  <style>
+    body {
+      margin: 0;
+      background: #090014;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-left: 8%;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 64px;
+      max-width: 700px;
+      line-height: 1.1;
+    }
+
+    p {
+      font-size: 20px;
+      max-width: 500px;
+      color: #ddd;
+    }
+
+    button {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div>
+      <h1>Premium 3D Landing Website</h1>
+      <p>GitHub Pages দিয়ে free hosting সহ modern animated website.</p>
+      <button>Get Started</button>
+    </div>
+  </section>
+
+  <canvas id="bg"></canvas>
+
+  <script type="module">
+    import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js";
+
+    const canvas = document.querySelector("#bg");
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      100
+    );
+
+    camera.position.z = 6;
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true
+    });
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const geometry = new THREE.IcosahedronGeometry(1.8, 2);
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x9b5cff,
+      metalness: 0.5,
+      roughness: 0.2
+    });
+
+    const object = new THREE.Mesh(geometry, material);
+    object.position.x = 2;
+    scene.add(object);
+
+    const light = new THREE.PointLight(0xffffff, 3);
+    light.position.set(3, 3, 4);
+    scene.add(light);
+
+    const ambient = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambient);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      object.rotation.x += 0.005;
+      object.rotation.y += 0.008;
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+
+</body>
+</html>
