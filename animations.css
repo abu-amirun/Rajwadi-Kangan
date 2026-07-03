@@ -1,0 +1,140 @@
+/* ==========================================================================
+   RAJWADI KANGAN — animations.css
+   All @keyframes and motion-only utility classes live here so animation
+   timing can be tuned without touching layout styles.
+   ========================================================================== */
+
+/* ---------- Loader ---------- */
+@keyframes loaderSweep{
+  0%{ transform:translateX(-100%); }
+  100%{ transform:translateX(350%); }
+}
+
+/* ---------- Hero scroll cue ---------- */
+@keyframes scrollCue{
+  0%{ top:-100%; }
+  60%{ top:100%; }
+  100%{ top:100%; }
+}
+
+/* ---------- Floating hero kangan ---------- */
+@keyframes floatY{
+  0%,100%{ transform:translateY(0) rotate(0deg); }
+  50%{ transform:translateY(-18px) rotate(1.2deg); }
+}
+
+/* ---------- Slow ring rotation ---------- */
+@keyframes spinSlow{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+/* ---------- Trust strip marquee ---------- */
+@keyframes marquee{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+
+/* ---------- Liquid Meena blob morphing ----------
+   Three distinct organic cycles so the trio never move in sync. */
+@keyframes blobMorph1{
+  0%,100%{
+    border-radius:42% 58% 65% 35% / 45% 40% 60% 55%;
+    transform:scale(1) rotate(0deg);
+  }
+  33%{
+    border-radius:60% 40% 30% 70% / 50% 65% 35% 50%;
+    transform:scale(1.08) rotate(8deg);
+  }
+  66%{
+    border-radius:35% 65% 55% 45% / 60% 30% 70% 40%;
+    transform:scale(0.94) rotate(-6deg);
+  }
+}
+@keyframes blobMorph2{
+  0%,100%{
+    border-radius:55% 45% 40% 60% / 40% 55% 45% 60%;
+    transform:scale(1) rotate(0deg);
+  }
+  40%{
+    border-radius:35% 65% 60% 40% / 55% 35% 65% 45%;
+    transform:scale(0.92) rotate(-10deg);
+  }
+  75%{
+    border-radius:65% 35% 45% 55% / 45% 60% 40% 55%;
+    transform:scale(1.06) rotate(6deg);
+  }
+}
+@keyframes blobMorph3{
+  0%,100%{
+    border-radius:48% 52% 58% 42% / 58% 48% 52% 42%;
+    transform:scale(1) rotate(0deg);
+  }
+  50%{
+    border-radius:62% 38% 42% 58% / 42% 62% 38% 58%;
+    transform:scale(1.12) rotate(12deg);
+  }
+}
+
+.blob-wrap[data-blob]{ transition:transform .4s var(--ease-luxury); }
+
+.blob--purple{
+  width:clamp(320px, 40vw, 560px); height:clamp(320px, 40vw, 560px);
+  top:-12%; left:-8%;
+  background:radial-gradient(circle at 35% 35%, var(--purple-soft), var(--purple-royal) 60%, transparent 75%);
+  opacity:0.55; mix-blend-mode:screen;
+  animation:blobMorph1 22s ease-in-out infinite;
+}
+.blob--maroon{
+  width:clamp(280px, 34vw, 480px); height:clamp(280px, 34vw, 480px);
+  bottom:-16%; right:-6%;
+  background:radial-gradient(circle at 60% 40%, var(--maroon-royal), var(--maroon-dark) 65%, transparent 78%);
+  opacity:0.6; mix-blend-mode:screen;
+  animation:blobMorph2 27s ease-in-out infinite;
+}
+.blob--green{
+  width:clamp(220px, 26vw, 380px); height:clamp(220px, 26vw, 380px);
+  top:38%; left:56%;
+  background:radial-gradient(circle at 50% 50%, var(--emerald), transparent 72%);
+  opacity:0.5; mix-blend-mode:screen;
+  animation:blobMorph3 30s ease-in-out infinite;
+}
+
+/* ---------- Ripple (buttons) ---------- */
+@keyframes rippleAnim{
+  to{ transform:scale(3.2); opacity:0; }
+}
+
+/* ---------- Border glow pulse (used on focus states / featured cards) ---------- */
+@keyframes glowPulse{
+  0%,100%{ box-shadow:0 0 20px rgba(212,175,55,0.18); }
+  50%{ box-shadow:0 0 42px rgba(212,175,55,0.4); }
+}
+.glow-pulse{ animation:glowPulse 3.4s ease-in-out infinite; }
+
+/* ---------- Light sweep (used on cta panel + featured cards) ---------- */
+@keyframes sweep{
+  0%{ transform:translateX(-130%) skewX(-12deg); }
+  100%{ transform:translateX(230%) skewX(-12deg); }
+}
+.cta-panel{ isolation:isolate; }
+.cta-panel::after{
+  content:'';
+  position:absolute; top:0; bottom:0; width:22%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
+  animation:sweep 6s ease-in-out infinite;
+  pointer-events:none;
+}
+
+/* ---------- Reveal states (set inline by GSAP; CSS keeps a graceful default) ---------- */
+[data-reveal]{ will-change:transform, opacity; }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
