@@ -1,0 +1,77 @@
+/* ==========================================================================
+   RAJWADI KANGAN — responsive.css
+   Mobile-first overrides. Base styles in style.css already flex/wrap
+   reasonably; these breakpoints tighten layout for each device class.
+   ========================================================================== */
+
+/* ---------- Ultra-wide (>1600px): give the canvas some breathing room ---------- */
+@media (min-width:1600px){
+  :root{ --container-w:1360px; }
+  .hero__title-line{ font-size:clamp(6rem, 7vw, 9rem); }
+}
+
+/* ---------- Small desktop / large tablet ---------- */
+@media (max-width:1080px){
+  .hero__grid{ grid-template-columns:1fr; text-align:center; }
+  .hero__content{ margin-inline:auto; }
+  .hero__cta{ justify-content:center; }
+  .hero__showcase{ max-width:420px; margin-inline:auto; order:-1; }
+
+  .card-grid--3{ grid-template-columns:repeat(2, 1fr); }
+  .contact-grid{ grid-template-columns:repeat(2, 1fr); }
+  .masonry{ columns:2 240px; }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width:860px){
+  :root{ --nav-h:70px; }
+
+  .nav__links{ display:none; }
+  .nav__toggle{ display:flex; }
+
+  .nav.is-open .nav__links{
+    display:flex; flex-direction:column; align-items:flex-start; gap:20px;
+    position:fixed; top:var(--nav-h); left:0; right:0;
+    padding:30px 6%;
+    background:rgba(36,10,25,0.97);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--glass-border);
+  }
+
+  .reseller-form__grid{ grid-template-columns:1fr; }
+  .cta-panel{ flex-direction:column; align-items:flex-start; }
+  .cta-panel__actions{ width:100%; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width:600px){
+  .container{ width:92%; }
+
+  .hero{ padding-top:calc(var(--nav-h) + 30px); }
+  .hero__title-line{ font-size:clamp(2.6rem, 15vw, 4.2rem); }
+  .hero__cta{ flex-direction:column; align-items:stretch; }
+  .hero__cta .btn{ width:100%; }
+
+  .section{ padding:60px 0; }
+  .card-grid--3{ grid-template-columns:1fr; }
+  .contact-grid{ grid-template-columns:1fr; }
+  .masonry{ columns:1 100%; }
+
+  .footer__inner{ flex-direction:column; }
+  .footer__links{ gap:14px 20px; }
+
+  .cta-panel__actions .btn{ width:100%; }
+  .cta-panel__actions{ flex-direction:column; }
+
+  .lightbox__nav{ width:42px; height:42px; font-size:1.4rem; }
+  .lightbox__nav--prev{ left:10px; }
+  .lightbox__nav--next{ right:10px; }
+  .lightbox__close{ top:14px; right:14px; }
+}
+
+/* ---------- Touch devices: bigger tap targets, no hover-only affordances ---------- */
+@media (hover:none){
+  .btn{ padding:16px 26px; }
+  .product-card:hover .jharokha-frame img{ transform:none; }
+  .masonry__item figcaption{ transform:translateY(0); }
+}
