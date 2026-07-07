@@ -36,19 +36,17 @@
 }
 
 /* ---------- Liquid Meena blob morphing ----------
-   Three distinct organic cycles so the trio never move in sync. */
+   Two organic liquid tones — deep wine maroon and emerald — echoing hand
+   enamelled meenakari. Kept deliberately gentle ("light animation"): small
+   scale/rotation range, slow duration, low opacity. */
 @keyframes blobMorph1{
   0%,100%{
     border-radius:42% 58% 65% 35% / 45% 40% 60% 55%;
     transform:scale(1) rotate(0deg);
   }
-  33%{
-    border-radius:60% 40% 30% 70% / 50% 65% 35% 50%;
-    transform:scale(1.08) rotate(8deg);
-  }
-  66%{
-    border-radius:35% 65% 55% 45% / 60% 30% 70% 40%;
-    transform:scale(0.94) rotate(-6deg);
+  50%{
+    border-radius:56% 44% 38% 62% / 50% 58% 42% 50%;
+    transform:scale(1.03) rotate(4deg);
   }
 }
 @keyframes blobMorph2{
@@ -56,48 +54,27 @@
     border-radius:55% 45% 40% 60% / 40% 55% 45% 60%;
     transform:scale(1) rotate(0deg);
   }
-  40%{
-    border-radius:35% 65% 60% 40% / 55% 35% 65% 45%;
-    transform:scale(0.92) rotate(-10deg);
-  }
-  75%{
-    border-radius:65% 35% 45% 55% / 45% 60% 40% 55%;
-    transform:scale(1.06) rotate(6deg);
-  }
-}
-@keyframes blobMorph3{
-  0%,100%{
-    border-radius:48% 52% 58% 42% / 58% 48% 52% 42%;
-    transform:scale(1) rotate(0deg);
-  }
   50%{
-    border-radius:62% 38% 42% 58% / 42% 62% 38% 58%;
-    transform:scale(1.12) rotate(12deg);
+    border-radius:42% 58% 55% 45% / 55% 42% 58% 45%;
+    transform:scale(0.97) rotate(-4deg);
   }
 }
 
 .blob-wrap[data-blob]{ transition:transform .4s var(--ease-luxury); }
 
-.blob--purple{
-  width:clamp(320px, 40vw, 560px); height:clamp(320px, 40vw, 560px);
-  top:-12%; left:-8%;
-  background:radial-gradient(circle at 35% 35%, var(--purple-soft), var(--purple-royal) 60%, transparent 75%);
-  opacity:0.55; mix-blend-mode:screen;
-  animation:blobMorph1 22s ease-in-out infinite;
-}
 .blob--maroon{
-  width:clamp(280px, 34vw, 480px); height:clamp(280px, 34vw, 480px);
-  bottom:-16%; right:-6%;
-  background:radial-gradient(circle at 60% 40%, var(--maroon-royal), var(--maroon-dark) 65%, transparent 78%);
-  opacity:0.6; mix-blend-mode:screen;
-  animation:blobMorph2 27s ease-in-out infinite;
+  width:clamp(320px, 40vw, 560px); height:clamp(320px, 40vw, 560px);
+  top:-14%; left:-8%;
+  background:radial-gradient(circle at 40% 35%, var(--purple-royal), var(--maroon-royal) 55%, transparent 76%);
+  opacity:0.42; mix-blend-mode:screen;
+  animation:blobMorph1 34s ease-in-out infinite;
 }
 .blob--green{
-  width:clamp(220px, 26vw, 380px); height:clamp(220px, 26vw, 380px);
-  top:38%; left:56%;
-  background:radial-gradient(circle at 50% 50%, var(--emerald), transparent 72%);
-  opacity:0.5; mix-blend-mode:screen;
-  animation:blobMorph3 30s ease-in-out infinite;
+  width:clamp(280px, 34vw, 480px); height:clamp(280px, 34vw, 480px);
+  bottom:-16%; right:-6%;
+  background:radial-gradient(circle at 60% 45%, #12604a, var(--emerald) 60%, transparent 78%);
+  opacity:0.4; mix-blend-mode:screen;
+  animation:blobMorph2 38s ease-in-out infinite;
 }
 
 /* ---------- Ripple (buttons) ---------- */
