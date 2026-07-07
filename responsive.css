@@ -15,8 +15,10 @@
   .hero__grid{ grid-template-columns:1fr; text-align:center; }
   .hero__content{ margin-inline:auto; }
   .hero__cta{ justify-content:center; }
-  .hero__showcase{ max-width:420px; margin-inline:auto; order:-1; }
+  .hero__showcase{ max-width:380px; min-height:440px; margin-inline:auto; order:-1; }
+  .hero__kangan{ max-height:50vh; }
 
+  .card-grid--4{ grid-template-columns:repeat(2, 1fr); }
   .card-grid--3{ grid-template-columns:repeat(2, 1fr); }
   .contact-grid{ grid-template-columns:repeat(2, 1fr); }
   .masonry{ columns:2 240px; }
@@ -38,9 +40,18 @@
     border-bottom:1px solid var(--glass-border);
   }
 
+  .nav__logo{ font-size:1.1rem; gap:8px; }
+  .nav__logo-mark{ width:34px; height:34px; }
+
   .reseller-form__grid{ grid-template-columns:1fr; }
   .cta-panel{ flex-direction:column; align-items:flex-start; }
   .cta-panel__actions{ width:100%; }
+}
+
+/* ---------- Small phones: icon-only WhatsApp button in the nav ---------- */
+@media (max-width:400px){
+  .nav__actions .btn--sm span{ display:none; }
+  .nav__actions .btn--sm{ padding:11px 14px; }
 }
 
 /* ---------- Mobile ---------- */
@@ -51,8 +62,12 @@
   .hero__title-line{ font-size:clamp(2.6rem, 15vw, 4.2rem); }
   .hero__cta{ flex-direction:column; align-items:stretch; }
   .hero__cta .btn{ width:100%; }
+  .hero__showcase{ max-width:260px; min-height:320px; }
+  .hero__kangan{ max-height:42vh; }
+  .hero__ring{ width:min(210px, 72%); }
 
   .section{ padding:60px 0; }
+  .card-grid--4{ grid-template-columns:1fr; }
   .card-grid--3{ grid-template-columns:1fr; }
   .contact-grid{ grid-template-columns:1fr; }
   .masonry{ columns:1 100%; }

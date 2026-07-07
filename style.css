@@ -7,20 +7,22 @@
 
 /* ---------- Design tokens ---------- */
 :root{
-  /* brand palette (exact hexes from brief) */
-  --bg:#240A19;
-  --maroon-dark:#2E0E20;
-  --maroon-royal:#461D34;
-  --purple-royal:#733960;
-  --purple-soft:#B16AA2;
-  --emerald:#0D4B3C;
-  --gold:#D4AF37;
-  --gold-light:#F4E3A2;
-  --pearl:#F8F7F3;
-  --glass:rgba(255,255,255,0.08);
-  --glass-strong:rgba(255,255,255,0.12);
-  --glass-border:rgba(244,227,162,0.18);
-  --glass-border-strong:rgba(244,227,162,0.32);
+  /* brand palette (Deep Dark Purple Maroon & Black) */
+  --bg:#080406;
+  --maroon-dark:#15060E;
+  --maroon-royal:#240A19;
+  --purple-royal:#3A0F29;
+  --purple-soft:#5C1D42;
+  --emerald:#062B22;
+  --gold:#C5A028;
+  --gold-light:#E8D082;
+  --pearl:#FDFCFB;
+
+  /* Glassmorphism Refined */
+  --glass:rgba(255,255,255,0.02);
+  --glass-strong:rgba(255,255,255,0.04);
+  --glass-border:rgba(197,160,40,0.12);
+  --glass-border-strong:rgba(197,160,40,0.25);
 
   /* derived */
   --ink:var(--pearl);
@@ -74,9 +76,9 @@ body::before{
   inset:0;
   z-index:-2;
   background:
-    radial-gradient(ellipse 80% 50% at 15% 0%, rgba(115,57,96,0.35), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 100% 20%, rgba(13,75,60,0.25), transparent 60%),
-    radial-gradient(ellipse 60% 60% at 50% 100%, rgba(70,29,52,0.4), transparent 65%),
+    radial-gradient(ellipse 80% 50% at 15% 0%, rgba(58,15,41,0.25), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 100% 20%, rgba(6,43,34,0.15), transparent 60%),
+    radial-gradient(ellipse 60% 60% at 50% 100%, rgba(36,10,25,0.3), transparent 65%),
     var(--bg);
 }
 /* subtle velvet grain */
@@ -169,28 +171,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .loader.is-hidden{ opacity:0; visibility:hidden; pointer-events:none; }
 
-/* ---------- Custom cursor ---------- */
-.cursor-dot, .cursor-ring{
-  position:fixed; top:0; left:0; z-index:9998; pointer-events:none;
-  border-radius:50%;
-  transform:translate(-50%,-50%);
-  will-change:transform;
-}
-.cursor-dot{
-  width:6px; height:6px; background:var(--gold); box-shadow:0 0 10px var(--gold);
-}
-.cursor-ring{
-  width:34px; height:34px; border:1px solid var(--glass-border-strong);
-  transition:width .25s var(--ease-luxury), height .25s var(--ease-luxury), border-color .25s;
-  backdrop-filter:blur(1px);
-}
-.cursor-ring.is-hover{
-  width:56px; height:56px; border-color:var(--gold); background:rgba(212,175,55,0.08);
-}
-@media (pointer:coarse){
-  .cursor-dot,.cursor-ring{ display:none; }
-}
-
 /* ---------- Scroll progress bar ---------- */
 .scroll-progress{
   position:fixed; top:0; left:0; width:100%; height:3px; z-index:9997;
@@ -235,6 +215,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-weight:500;
   color:var(--ink);
   white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.nav__logo-mark{
+  width:38px; height:38px; object-fit:contain;
+  filter:drop-shadow(0 0 8px rgba(212,175,55,0.35));
 }
 .nav__logo span{ color:var(--gold); }
 
@@ -367,10 +354,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .hero__showcase{
   position:relative; display:flex; align-items:center; justify-content:center;
-  aspect-ratio:1/1;
+  min-height:min(70vh, 640px);
 }
 .hero__ring{
-  position:absolute; inset:6%;
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:min(360px, 62%); aspect-ratio:1/1;
   border:1px solid var(--glass-border);
   border-radius:50%;
   animation:spinSlow 40s linear infinite;
@@ -381,7 +369,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   animation:spinSlow 60s linear infinite reverse;
 }
 .hero__kangan{
-  position:relative; z-index:1; width:88%;
+  position:relative; z-index:1;
+  width:auto; max-width:82%; max-height:min(66vh, 620px);
   filter:drop-shadow(0 30px 60px rgba(0,0,0,0.55));
   animation:floatY 7s ease-in-out infinite;
 }
@@ -434,17 +423,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ---------- Card grid ---------- */
 .card-grid{ display:grid; gap:clamp(24px, 3vw, 40px); perspective:1400px; }
 .card-grid--3{ grid-template-columns:repeat(3, 1fr); }
+.card-grid--4{ grid-template-columns:repeat(4, 1fr); }
 
 /* ---------- Product card / jharokha signature frame ---------- */
 .product-card{
-  background:var(--glass);
+  background:linear-gradient(165deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
   border:1px solid var(--glass-border);
   border-radius:var(--radius-lg);
   padding:28px 26px 26px;
-  backdrop-filter:blur(14px) saturate(140%);
-  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
   box-shadow:var(--shadow-soft);
-  transition:transform .1s linear, border-color .35s, box-shadow .35s;
+  transition:transform .4s var(--ease-luxury), border-color .35s, box-shadow .35s;
   transform-style:preserve-3d;
   will-change:transform;
 }
