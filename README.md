@@ -39,19 +39,22 @@ Lenis, Three.js) loads from CDN via `<script>` tags in `index.html`.
 
 ```
 rajwadi-kangan/
-├── index.html              # single-page markup, SEO meta, JSON-LD, script includes
+├── index.html              # single-page markup, SEO meta, JSON-LD (store + 8 products + FAQ), script includes
 ├── style.css                # design tokens, typography, layout, components
 ├── animations.css           # all @keyframes + motion utility classes
 ├── responsive.css           # mobile-first breakpoints
 ├── script.js                 # loader, footer year, card-tilt, WhatsApp helper actions
-├── particles.js              # Three.js floating "moti" (pearl) background
+├── particles.js              # Three.js floating "moti" (pearl) background (InstancedMesh)
 ├── cursor.js                  # magnetic buttons + click ripple (no custom cursor)
 ├── scroll.js                  # Lenis + GSAP ScrollTrigger reveals/parallax/nav/progress bar
 ├── gallery.js                 # masonry gallery lightbox
 ├── form.js                    # reseller form → Google Apps Script → WhatsApp redirect
-├── favicon-16.png / favicon-32.png / favicon-48.png / apple-touch-icon.png
+├── robots.txt / sitemap.xml / llms.txt   # SEO + AI-crawler discoverability
+├── favicon.svg / favicon.ico / favicon-96x96.png / apple-touch-icon.png
+├── web-app-manifest-192x192.png / web-app-manifest-512x512.png / site.webmanifest
+│     ↑ all supplied by the client — not generated; see §9
 ├── assets/
-│   ├── images/               # kangan-*.svg (product art) + logo-crest*.png / logo-full.png(.webp) — real brand logo, background removed
+│   ├── images/               # kangan-*.svg (product art) + logo-crest*.png (nav/footer mark) + hero-peacock.jpg (hero banner)
 │   ├── icons/                 # hand-drawn line/glyph icon set (SVG, currentColor)
 │   └── pdf/                   # rajwadi-kangan-catalogue.pdf (placeholder catalogue)
 ├── google-apps-script/
@@ -171,6 +174,66 @@ enhanced — the page remains fully readable without it.
   see [`google-apps-script/README.md`](google-apps-script/README.md) for
   the full deploy walkthrough. Once deployed, paste your `/exec` URL into
   the `GAS_ENDPOINT` constant near the top of `form.js`.
+
+---
+
+## 9. Revision log — client feedback round 3
+
+- **Favicon replaced with the client's own package** — per instruction, no
+  new favicon was generated. `favicon.svg`, `favicon.ico`, `favicon-96x96.png`,
+  `apple-touch-icon.png`, `web-app-manifest-192x192.png`,
+  `web-app-manifest-512x512.png` and `site.webmanifest` were copied in as
+  supplied and wired up in `index.html`'s `<head>`. Only the manifest's
+  text fields (`name`/`short_name`/`theme_color`/`background_color`) were
+  edited to match the brand — the icon images themselves are untouched.
+  **Note:** the supplied icons render mostly as flat colour at small sizes
+  when inspected programmatically (not the ornate peacock crest) — worth a
+  quick look in a live browser tab to confirm it's the intended file.
+  Also, `favicon.svg` is ~6MB, which is unusually large for a favicon and
+  will add real load weight; consider running it through an SVG minifier
+  if that matters for your Lighthouse score.
+- **Hero now features the peacock crest banner** — the hero showcase
+  uses the high-resolution peacock crest logo/artwork as requested,
+  providing a professional and branded entry point.
+- **Decorative ring removed** — the spinning circle behind the hero image
+  is gone, replaced with a soft, static spotlight glow behind the photo.
+- **Royal Collection & Best Sellers now show 4 products each**, one row
+  on desktop, stepping down through 3 → 2 → 1 columns as the viewport
+  narrows (`card-grid--4` in `style.css` / `responsive.css`). Two new
+  on-palette pieces were added — **Purple Frost Kangan** (₹5,499) and
+  **Royal Jade Meena Kada** (₹3,999) — using the same generated-SVG
+  illustration approach as the rest of the catalogue.
+- **3D pearls: smoother + faster** — `particles.js` was rewritten to draw
+  every pearl as a single `THREE.InstancedMesh` (one draw call instead of
+  ~28), added a Page Visibility pause so it stops rendering in a
+  background tab, and capped the pixel ratio. Motion itself is unchanged
+  (same gentle drift/rotation), just cheaper to render.
+- **Reseller form: only Name + WhatsApp required** — Brand Name, Store
+  Name, Website and Social Media are all optional now, in the HTML, in
+  `form.js`'s validation, and in `google-apps-script/Code.gs`'s
+  server-side validation (all three were updated together so a submission
+  that passes client-side validation can't get rejected server-side).
+- **Google Sheet endpoint updated** — `GAS_ENDPOINT` in `form.js` now
+  points at the new Web App URL supplied.
+- **SEO / AI-discoverability pass**:
+  - `robots.txt` and `sitemap.xml` added at the project root.
+  - `llms.txt` added — a plain-text summary of the brand, products, page
+    sections and policies, following the emerging `llms.txt` convention
+    for AI assistants/agents that read a site before answering questions
+    about it.
+  - Structured data expanded from a single `JewelryStore` entry into a
+    `@graph` with the store, all **8 products** as `schema.org/Product`
+    (name, description, price in INR, availability), and a new
+    **FAQPage** — see the next point.
+  - A new **FAQ section** (`#faq`) was added with five real questions
+    grounded in claims already made elsewhere on the site (wholesale
+    pricing, COD, nickel-free finish, bulk bridal orders, catalogue
+    access) — plain `<details>/<summary>` accordions, no extra JS, and
+    matching `FAQPage` JSON-LD for rich results.
+- **General polish** — tightened card padding for the denser 4-up grid,
+  removed now-unused CSS (`floatY`/`spinSlow` keyframes, the old ring
+  rules), added an intermediate 3-column breakpoint so the product grids
+  step down more gradually on mid-size screens.
 
 ---
 

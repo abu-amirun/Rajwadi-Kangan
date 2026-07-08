@@ -22,7 +22,7 @@
 
   /* ---------- Configuration ---------- */
   // Replace with your own /exec URL if you redeploy the Apps Script.
-  const GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzUxLRfL5FN06u3Iq3vUNREYm0m0bfOayK9NnxnkY9B-wC45C-9PcP2u-ULSZRVjmiWJw/exec';
+  const GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbywWvfMhJ0yNlFNCAu18d0pZZ99ohgpqbChOdFMJahh095BTBnS6QuYICrk3pzabjriPQ/exec';
   const WHATSAPP_NUMBER = '918828888129';
 
   const statusEl = form.querySelector('[data-form-status]');
