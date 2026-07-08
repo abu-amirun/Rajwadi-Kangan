@@ -17,18 +17,6 @@
   100%{ top:100%; }
 }
 
-/* ---------- Floating hero kangan ---------- */
-@keyframes floatY{
-  0%,100%{ transform:translateY(0) rotate(0deg); }
-  50%{ transform:translateY(-18px) rotate(1.2deg); }
-}
-
-/* ---------- Slow ring rotation ---------- */
-@keyframes spinSlow{
-  from{ transform:rotate(0deg); }
-  to{ transform:rotate(360deg); }
-}
-
 /* ---------- Trust strip marquee ---------- */
 @keyframes marquee{
   from{ transform:translateX(0); }
