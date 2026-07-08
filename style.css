@@ -247,6 +247,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border:1px solid var(--glass-border); border-radius:50%;
 }
 .nav__toggle img{ width:18px; height:18px; }
+.nav__toggle [data-icon-close] { display: none; }
+.nav.is-open .nav__toggle [data-icon-menu] { display: none; }
+.nav.is-open .nav__toggle [data-icon-close] { display: block; }
 
 /* ---------- Buttons ---------- */
 .btn{
